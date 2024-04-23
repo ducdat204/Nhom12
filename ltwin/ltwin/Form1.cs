@@ -15,6 +15,18 @@ namespace ltwin
         public Form1()
         {
             InitializeComponent();
+            LoadMatrix();
+        }
+        void LoadMatrix()
+        {
+            for (int i = 0; i < 6; i++) 
+            {
+                for (int j = 0; j < 7; j++) 
+                {
+                    Button btn = new Button();
+                    pnlMatrix.Controls.Add(btn);
+                }
+            } 
         }
 
         private void Form1_Load(object sender, EventArgs e)

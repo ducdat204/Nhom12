@@ -1,0 +1,7 @@
+C:\Users\datta\OneDrive\Documents\ltwin\ltwin\obj\Debug\ltwin.csproj.AssemblyReference.cache
+C:\Users\datta\OneDrive\Documents\ltwin\ltwin\obj\Debug\ltwin.AJob.resources
+C:\Users\datta\OneDrive\Documents\ltwin\ltwin\obj\Debug\ltwin.DailyPlan.resources
+C:\Users\datta\OneDrive\Documents\ltwin\ltwin\obj\Debug\ltwin.Form1.resources
+C:\Users\datta\OneDrive\Documents\ltwin\ltwin\obj\Debug\ltwin.Properties.Resources.resources
+C:\Users\datta\OneDrive\Documents\ltwin\ltwin\obj\Debug\ltwin.csproj.GenerateResource.cache
+C:\Users\datta\OneDrive\Documents\ltwin\ltwin\obj\Debug\ltwin.csproj.CoreCompileInputs.cache
