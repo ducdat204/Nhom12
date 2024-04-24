@@ -21,10 +21,5 @@ namespace ltwin
         {
 
         }
-
-        private void pnlJob_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
