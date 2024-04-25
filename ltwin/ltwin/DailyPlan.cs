@@ -16,10 +16,5 @@ namespace ltwin
         {
             InitializeComponent();
         }
-
-        private void DailyPlan_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
