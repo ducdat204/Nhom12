@@ -256,6 +256,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Lập lịch công việc";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -290,6 +291,4 @@
         private System.Windows.Forms.Button btnMonday;
     }
 }
-
-
 

@@ -1,26 +1,37 @@
-﻿
+﻿using ltwin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ltwin;
+using System.Xml.Serialization;
 
 namespace ltwin
 {
     public partial class Form1 : Form
     {
         #region Peoperties
+        private string filePath = "data.xml";
+
         private List<List<Button>> matrix;
 
         public List<List<Button>> Matrix
         {
             get { return matrix; }
             set { matrix = value; }
+        }
+
+        private PlanData job;
+
+        public PlanData Job
+        {
+            get { return job; }
+            set { job = value; }
         }
 
         private List<string> dateOfWeek = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
@@ -30,6 +41,29 @@ namespace ltwin
             InitializeComponent();
 
             LoadMatrix();
+
+            try
+            {
+                DeserializeFromXML(filePath);
+            }
+            catch
+            {
+                SetDefaultJob();
+            }
+        }
+
+        void SetDefaultJob()
+        {
+            Job = new PlanData();
+            Job.Job = new List<PlanItem>();
+            Job.Job.Add(new PlanItem()
+            {
+                Date = DateTime.Now,
+                FromTime = new Point(4, 0),
+                ToTime = new Point(5, 0),
+                Job = "Thử nghiệm thôi",
+                Status = PlanItem.ListStatus[(int)EPlanItem.COMING]
+            });
         }
 
         void LoadMatrix()
@@ -149,6 +183,39 @@ namespace ltwin
         private void btnToDay_Click(object sender, EventArgs e)
         {
             SetDefaultDate();
+        }
+
+        private void SerializeToXML(object data, string filePath)
+        {
+            FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate, FileAccess.Write);
+            XmlSerializer sr = new XmlSerializer(typeof(PlanData));
+
+            sr.Serialize(fs, data);
+
+            fs.Close();
+        }
+
+        private object DeserializeFromXML(string filePath)
+        {
+            FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
+            try
+            {
+                XmlSerializer sr = new XmlSerializer(typeof(PlanData));
+
+                object result = sr.Deserialize(fs);
+                fs.Close();
+                return result;
+            }
+            catch (Exception e)
+            {
+                fs.Close();
+                throw new NotImplementedException();
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SerializeToXML(Job, filePath);
         }
     }
 }
