@@ -34,3 +34,15 @@ C:\Users\hahac\OneDrive\Desktop\ltwin\ltwin\obj\Debug\ltwin.pdb
 C:\Users\hahac\OneDrive\Desktop\ltwin\ltwin\bin\Debug\ltwin.exe.config
 C:\Users\hahac\OneDrive\Desktop\ltwin\ltwin\bin\Debug\ltwin.exe
 C:\Users\hahac\OneDrive\Desktop\ltwin\ltwin\bin\Debug\ltwin.pdb
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\obj\Debug\ltwin.csproj.AssemblyReference.cache
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\obj\Debug\ltwin.AJob.resources
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\obj\Debug\ltwin.DailyPlan.resources
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\obj\Debug\ltwin.Form1.resources
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\obj\Debug\ltwin.Properties.Resources.resources
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\obj\Debug\ltwin.csproj.GenerateResource.cache
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\obj\Debug\ltwin.csproj.CoreCompileInputs.cache
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\obj\Debug\ltwin.exe
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\obj\Debug\ltwin.pdb
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\bin\Debug\ltwin.exe.config
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\bin\Debug\ltwin.exe
+C:\Users\datta\Documents\Zalo Received Files\ltwin\ltwin\ltwin\bin\Debug\ltwin.pdb

@@ -44,7 +44,7 @@ namespace ltwin
 
             try
             {
-                DeserializeFromXML(filePath);
+                Job = DeserializeFromXML(filePath) as   PlanData;
             }
             catch
             {
@@ -64,6 +64,7 @@ namespace ltwin
                 Job = "Thử nghiệm thôi",
                 Status = PlanItem.ListStatus[(int)EPlanItem.COMING]
             });
+            
         }
 
         void LoadMatrix()
@@ -78,6 +79,7 @@ namespace ltwin
                 {
                     Button btn = new Button() { Width = Cons.dateButtonWidth, Height = Cons.dateButtonHeight };
                     btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + Cons.margin, oldBtn.Location.Y);
+                    btn.Click += Btn_Click;
 
                     pnlMatrix.Controls.Add(btn);
                     Matrix[i].Add(btn);
@@ -88,6 +90,14 @@ namespace ltwin
             }
 
             SetDefaultDate();
+        }
+
+        private void Btn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty((sender as Button).Text))
+                return;
+            DailyPlan daily = new DailyPlan(new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, Convert.ToInt32((sender as Button).Text)), Job);
+            daily.ShowDialog();
         }
 
         int DayOfMonth(DateTime date)
@@ -216,6 +226,11 @@ namespace ltwin
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             SerializeToXML(Job, filePath);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
