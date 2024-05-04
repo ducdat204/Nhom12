@@ -34,3 +34,15 @@ C:\Users\hahac\OneDrive\Desktop\ltwin\ltwin\obj\Debug\ltwin.pdb
 C:\Users\hahac\OneDrive\Desktop\ltwin\ltwin\bin\Debug\ltwin.exe.config
 C:\Users\hahac\OneDrive\Desktop\ltwin\ltwin\bin\Debug\ltwin.exe
 C:\Users\hahac\OneDrive\Desktop\ltwin\ltwin\bin\Debug\ltwin.pdb
+D:\001\Nhom12\ltwin\ltwin\bin\Debug\ltwin.exe.config
+D:\001\Nhom12\ltwin\ltwin\bin\Debug\ltwin.exe
+D:\001\Nhom12\ltwin\ltwin\bin\Debug\ltwin.pdb
+D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.csproj.AssemblyReference.cache
+D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.AJob.resources
+D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.DailyPlan.resources
+D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.Form1.resources
+D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.Properties.Resources.resources
+D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.csproj.GenerateResource.cache
+D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.csproj.CoreCompileInputs.cache
+D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.exe
+D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.pdb

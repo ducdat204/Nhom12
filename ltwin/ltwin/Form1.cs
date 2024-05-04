@@ -1,4 +1,5 @@
 ﻿using ltwin;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,13 @@ namespace ltwin
 {
     public partial class Form1 : Form
     {
+        private int appTime;
+
+        public int AppTime
+        {
+            get { return appTime; }
+            set { appTime = value; }
+        }
         #region Peoperties
         private string filePath = "data.xml";
 
@@ -40,6 +48,18 @@ namespace ltwin
         {
             InitializeComponent();
 
+            RegistryKey regkey = Registry.CurrentUser.CreateSubKey("Software\\LapLich");
+            RegistryKey regstart = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
+            string keyvalue = "1";
+            try 
+            {
+                regkey.SetValue("Index", keyvalue);
+                regstart.SetValue("LapLich", Application.StartupPath + "\\ltwin.exe");
+            }
+            catch (System.Exception ex)
+            { }
+            tmNotify.Start();
+            appTime = 0;
             LoadMatrix();
 
             try
@@ -206,7 +226,7 @@ namespace ltwin
                 fs.Close();
                 return result;
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 fs.Close();
                 throw new NotImplementedException();
@@ -216,6 +236,41 @@ namespace ltwin
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             SerializeToXML(Job, filePath);
+        }
+
+        private void btnMonday_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tmNotify_Tick(object sender, EventArgs e)
+        {
+            if (!ckbNotify.Checked)
+             return;
+
+            AppTime++;
+            
+            if (AppTime < Cons.notifyTime )
+             return;
+
+            if (Job == null || Job.Job == null)
+             return; 
+
+            DateTime currentDate = DateTime.Now;
+            List<PlanItem> todayjob = Job.Job.Where(p=>p.Date.Year == currentDate.Year && p.Date.Month == currentDate.Month && p.Date.Day == currentDate.Day ).ToList();  
+            Notify.ShowBalloonTip (Cons.notifyTimeOut, "Lịch công việc", string.Format("Bạn có (0) việc trong ngày hôm nay", todayjob.Count), ToolTipIcon.Info  );
+
+            AppTime = 0;
+        }
+
+        private void nmNotify_ValueChanged(object sender, EventArgs e)
+        {
+            Cons.notifyTime = (int)nmNotify.Value;
+        }
+
+        private void ckbNotify_CheckedChanged(object sender, EventArgs e)
+        {
+            nmNotify.Enabled = ckbNotify.Checked;
         }
     }
 }
