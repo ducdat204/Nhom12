@@ -46,3 +46,15 @@ D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.csproj.GenerateResource.cache
 D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.csproj.CoreCompileInputs.cache
 D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.exe
 D:\001\Nhom12\ltwin\ltwin\obj\Debug\ltwin.pdb
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\obj\Debug\ltwin.csproj.AssemblyReference.cache
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\obj\Debug\ltwin.exe
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\obj\Debug\ltwin.pdb
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\bin\Debug\ltwin.exe.config
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\bin\Debug\ltwin.exe
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\bin\Debug\ltwin.pdb
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\obj\Debug\ltwin.AJob.resources
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\obj\Debug\ltwin.DailyPlan.resources
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\obj\Debug\ltwin.Form1.resources
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\obj\Debug\ltwin.Properties.Resources.resources
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\obj\Debug\ltwin.csproj.GenerateResource.cache
+C:\Users\hahac\OneDrive\Desktop\New folder (2)\ltwin\ltwin\obj\Debug\ltwin.csproj.CoreCompileInputs.cache

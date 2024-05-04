@@ -16,6 +16,8 @@ namespace ltwin
 {
     public partial class Form1 : Form
     {
+        #region Peoperties   
+
         private int appTime;
 
         public int AppTime
@@ -23,7 +25,7 @@ namespace ltwin
             get { return appTime; }
             set { appTime = value; }
         }
-        #region Peoperties
+
         private string filePath = "data.xml";
 
         private List<List<Button>> matrix;
@@ -49,22 +51,30 @@ namespace ltwin
             InitializeComponent();
 
             RegistryKey regkey = Registry.CurrentUser.CreateSubKey("Software\\LapLich");
+            //mo registry khoi dong cung win
             RegistryKey regstart = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
             string keyvalue = "1";
-            try 
+            //string subkey = "Software\\ManhQuyen";
+            try
             {
+                //chen gia tri key
                 regkey.SetValue("Index", keyvalue);
-                regstart.SetValue("LapLich", Application.StartupPath + "\\ltwin.exe");
+                //regstart.SetValue("taoregistrytronghethong", "E:\\Studing\\Bai Tap\\CSharp\\Channel 4\\bai temp\\tao registry trong he thong\\tao registry trong he thong\\bin\\Debug\\tao registry trong he thong.exe");
+                regstart.SetValue("LapLich", Application.StartupPath + "\\Lập lịch.exe");
+                ////dong tien trinh ghi key
+                //regkey.Close();
             }
             catch (System.Exception ex)
-            { }
+            {
+            }
+
             tmNotify.Start();
             appTime = 0;
             LoadMatrix();
 
             try
             {
-                DeserializeFromXML(filePath);
+                Job = DeserializeFromXML(filePath) as PlanData;
             }
             catch
             {
@@ -98,6 +108,7 @@ namespace ltwin
                 {
                     Button btn = new Button() { Width = Cons.dateButtonWidth, Height = Cons.dateButtonHeight };
                     btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + Cons.margin, oldBtn.Location.Y);
+                    btn.Click += btn_Click;
 
                     pnlMatrix.Controls.Add(btn);
                     Matrix[i].Add(btn);
@@ -108,6 +119,14 @@ namespace ltwin
             }
 
             SetDefaultDate();
+        }
+
+        void btn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty((sender as Button).Text))
+                return;
+            DailyPlan daily = new DailyPlan(new DateTime(dtpkDate.Value.Year, dtpkDate.Value.Month, Convert.ToInt32((sender as Button).Text)), Job);
+            daily.ShowDialog();
         }
 
         int DayOfMonth(DateTime date)
@@ -152,7 +171,7 @@ namespace ltwin
 
                 if (isEqualDate(useDate, date))
                 {
-                    btn.BackColor = Color.Pink;
+                    btn.BackColor = Color.Aqua;
                 }
 
                 if (column >= 6)
@@ -226,7 +245,7 @@ namespace ltwin
                 fs.Close();
                 return result;
             }
-            catch (Exception )
+            catch (Exception e)
             {
                 fs.Close();
                 throw new NotImplementedException();
@@ -238,27 +257,22 @@ namespace ltwin
             SerializeToXML(Job, filePath);
         }
 
-        private void btnMonday_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tmNotify_Tick(object sender, EventArgs e)
         {
             if (!ckbNotify.Checked)
-             return;
+                return;
 
             AppTime++;
-            
-            if (AppTime < Cons.notifyTime )
-             return;
+
+            if (AppTime < Cons.notifyTime)
+                return;
 
             if (Job == null || Job.Job == null)
-             return; 
+                return;
 
             DateTime currentDate = DateTime.Now;
-            List<PlanItem> todayjob = Job.Job.Where(p=>p.Date.Year == currentDate.Year && p.Date.Month == currentDate.Month && p.Date.Day == currentDate.Day ).ToList();  
-            Notify.ShowBalloonTip (Cons.notifyTimeOut, "Lịch công việc", string.Format("Bạn có (0) việc trong ngày hôm nay", todayjob.Count), ToolTipIcon.Info  );
+            List<PlanItem> todayjobs = Job.Job.Where(p => p.Date.Year == currentDate.Year && p.Date.Month == currentDate.Month && p.Date.Day == currentDate.Day).ToList();
+            Notify.ShowBalloonTip(Cons.notifyTimeOut, "Lịch công việc", string.Format("Bạn có {0} việc trong ngày hôm nay", todayjobs.Count), ToolTipIcon.Info);
 
             AppTime = 0;
         }
@@ -271,6 +285,11 @@ namespace ltwin
         private void ckbNotify_CheckedChanged(object sender, EventArgs e)
         {
             nmNotify.Enabled = ckbNotify.Checked;
+        }
+
+        private void Notify_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
