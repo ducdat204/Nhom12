@@ -50,7 +50,7 @@ namespace ltwin
         {
             InitializeComponent();
 
-            RegistryKey regkey = Registry.CurrentUser.CreateSubKey("Software\\LapLich");
+            RegistryKey regkey = Registry.CurrentUser.CreateSubKey("Software\\ltwin");
             //mo registry khoi dong cung win
             RegistryKey regstart = Registry.CurrentUser.CreateSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run");
             string keyvalue = "1";
@@ -60,7 +60,7 @@ namespace ltwin
                 //chen gia tri key
                 regkey.SetValue("Index", keyvalue);
                 //regstart.SetValue("taoregistrytronghethong", "E:\\Studing\\Bai Tap\\CSharp\\Channel 4\\bai temp\\tao registry trong he thong\\tao registry trong he thong\\bin\\Debug\\tao registry trong he thong.exe");
-                regstart.SetValue("LapLich", Application.StartupPath + "\\Lập lịch.exe");
+                regstart.SetValue("ltwin", Application.StartupPath + "\\ltwin.exe");
                 ////dong tien trinh ghi key
                 //regkey.Close();
             }
